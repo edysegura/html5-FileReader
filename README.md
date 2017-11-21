@@ -2,6 +2,6 @@
 
 A simple example using FileReader API do preview an image
 
-## DEMO 
+## DEMO
 
 ![Preview](images/sample.png)
