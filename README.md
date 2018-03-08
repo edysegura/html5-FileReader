@@ -1,7 +1,8 @@
-# FileReader API
+# HTML5 FileReader API
 
-A simple example using FileReader API do preview an image
+Simple examples using HTML5 FileReader API
 
-## DEMO
+## Example
 
-![Preview](images/sample.png)
+- [Image Preview](image-preview)
+- [CSV Reader](csv-reader)
