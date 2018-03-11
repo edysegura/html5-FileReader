@@ -10,6 +10,6 @@ function showPreview(file) {
     fileReader.readAsDataURL(file)
 }
 
-upload.addEventListener('change', e => {
-    showPreview(e.target.files[0])
+upload.addEventListener('change', event => {
+    showPreview(event.target.files[0])
 })
