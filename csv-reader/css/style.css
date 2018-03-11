@@ -1,0 +1,17 @@
+output {
+  display: block;
+  margin-top: 20px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 2px solid #eee;
+}
+
+th {
+  text-transform: capitalize;
+  padding: 4px;
+}
