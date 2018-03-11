@@ -5,16 +5,19 @@ function showData(data) {
   output.textContent = data
 }
 
-function processCSV(csv) {
+function processCSV(csvData) {
+  const lineDelimiter = '\n', colunmDelimiter = ','
   const output =
-    csv.split('\n').map(line => line.split(','))
-  showData(output)
+    csvData
+      .split(lineDelimiter)
+      .map(line => line.split(colunmDelimiter))
+  return output
 }
 
 function readCSVFile(csvFile) {
   const reader = new FileReader()
   reader.onloadstart = () => output.textContent = 'Loading...'
-  reader.onloadend = (event) => processCSV(event.target.result)
+  reader.onloadend = ( event ) => showData(processCSV(event.target.result))
   reader.onerror = () => output.textContent = 'Could not read the file'
   reader.readAsText(csvFile)
 }
