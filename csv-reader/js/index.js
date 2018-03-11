@@ -2,7 +2,21 @@ const input = document.getElementById('upload')
 const output = document.querySelector('output')
 
 function showData(data) {
-  output.textContent = data
+  const header = data.shift()
+  const lines = data.map(line => `
+    <tr>
+      <td>${ line.join('</td><td>') }</td>
+    </tr>
+  `)
+  const tableHtml = `
+    <table>
+      <tr>
+        <th>${ header.join('</th><th>') }</th>
+      </tr>
+      ${ lines.join('') }
+    </table>
+  `
+  output.innerHTML = tableHtml
 }
 
 function processCSV(csvData) {
