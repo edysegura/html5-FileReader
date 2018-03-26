@@ -1,3 +1,17 @@
+label {
+  display: block;
+  width: 80%;
+  background-color: rgb(176, 204, 165);
+  border: 1px solid rgb(133, 184, 123);
+  text-align: center;
+  padding: 20px;
+}
+
+label input {
+  visibility: hidden;
+  width: 0;
+}
+
 output {
   display: block;
   margin-top: 20px;

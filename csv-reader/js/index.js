@@ -1,3 +1,4 @@
+const uploadContainer = document.getElementById('upload-container')
 const input = document.getElementById('upload')
 const output = document.querySelector('output')
 
@@ -33,12 +34,21 @@ function processCSV(csvData) {
 
 function loadCSVFile(csvFile) {
   const reader = new FileReader()
-  reader.onloadstart = () => output.textContent = 'Loading...'
-  reader.onloadend = ( event ) => showData(processCSV(event.target.result))
-  reader.onerror = () => output.textContent = 'This file could not be read'
+  reader.onloadstart = () => (output.textContent = 'Loading...')
+  reader.onloadend = event => showData(processCSV(event.target.result))
+  reader.onerror = () => (output.textContent = 'This file could not be read')
   reader.readAsText(csvFile)
 }
 
-input.addEventListener('change', (event) => {
+input.addEventListener('change', event => {
   loadCSVFile(event.currentTarget.files[0])
+})
+
+uploadContainer.addEventListener('dragover', event => {
+  event.preventDefault()
+})
+
+uploadContainer.addEventListener('drop', event => {
+  loadCSVFile(event.dataTransfer.files[0])
+  event.preventDefault()
 })
