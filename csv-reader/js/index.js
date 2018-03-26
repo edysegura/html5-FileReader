@@ -33,9 +33,9 @@ function processCSV(csvData) {
 
 function loadCSVFile(csvFile) {
   const reader = new FileReader()
-  reader.onloadstart = () => output.textContent = 'Loading...'
-  reader.onloadend = ( event ) => showData(processCSV(event.target.result))
-  reader.onerror = () => output.textContent = 'This file could not be read'
+  reader.onloadstart = () => (output.textContent = 'Loading...')
+  reader.onloadend = event => showData(processCSV(event.target.result))
+  reader.onerror = () => (output.textContent = 'This file could not be read')
   reader.readAsText(csvFile)
 }
 
