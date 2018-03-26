@@ -1,3 +1,4 @@
+const uploadContainer = document.getElementById('upload-container')
 const input = document.getElementById('upload')
 const output = document.querySelector('output')
 
@@ -39,6 +40,15 @@ function loadCSVFile(csvFile) {
   reader.readAsText(csvFile)
 }
 
-input.addEventListener('change', (event) => {
+input.addEventListener('change', event => {
   loadCSVFile(event.currentTarget.files[0])
+})
+
+uploadContainer.addEventListener('dragover', event => {
+  event.preventDefault()
+})
+
+uploadContainer.addEventListener('drop', event => {
+  loadCSVFile(event.dataTransfer.files[0])
+  event.preventDefault()
 })
