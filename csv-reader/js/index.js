@@ -45,10 +45,17 @@ input.addEventListener('change', event => {
 })
 
 uploadContainer.addEventListener('dragover', event => {
+  uploadContainer.classList.add('dragover')
+  event.preventDefault()
+})
+
+uploadContainer.addEventListener('dragleave', event => {
+  uploadContainer.classList.remove('dragover')
   event.preventDefault()
 })
 
 uploadContainer.addEventListener('drop', event => {
   loadCSVFile(event.dataTransfer.files[0])
+  uploadContainer.classList.remove('dragover')
   event.preventDefault()
 })
