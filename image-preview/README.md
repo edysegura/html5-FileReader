@@ -1,6 +1,6 @@
 # FileReader API
 
-A simple example using FileReader API do preview an image
+A simple example using FileReader API to preview an image
 
 ## DEMO
 
