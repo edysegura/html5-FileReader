@@ -31,6 +31,10 @@ table {
   border-collapse: collapse;
 }
 
+tr:nth-child(even) {
+  background-color: #eee;
+}
+
 table, th, td {
   border: 2px solid #eee;
 }
