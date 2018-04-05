@@ -1,5 +1,6 @@
 'use strict'
 
 import { data } from './data.js'
+import buildTable from './buildTable.js'
 
-console.log(data);
+buildTable(data)
