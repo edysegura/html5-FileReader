@@ -6,7 +6,7 @@ function arrayToCSV(data) {
           .join('\n')
 }
 
-export default function exportToCSV(filename, data) {
+export default function exportToCSV(data, filename) {
   const csvText = arrayToCSV(data)
   const csvBlob = new Blob([csvText], { type: 'text/csv;charset=UTF-8' })
 
