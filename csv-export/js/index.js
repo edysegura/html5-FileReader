@@ -5,4 +5,4 @@ import buildTable from './buildTable.js'
 import exportToCSV from './exportToCSV.js';
 
 buildTable(data)
-exportToCSV('my-filename.csv', data)
+//exportToCSV('my-filename.csv', data)
