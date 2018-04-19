@@ -1,4 +1,4 @@
-export const data = [
+const data = [
   [
     "rank",
     "place",
@@ -357,3 +357,5 @@ export const data = [
     "-88.25278"
   ]
 ]
+
+export default data
