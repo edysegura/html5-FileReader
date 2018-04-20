@@ -1,6 +1,6 @@
 # Client Side CSV Generation
 
-This is an example in how you would to generate a CSV file direct in the browser.
+This is an example in how you would to generate a CSV file direct in the browser using Blob (Binary Large Object).
 
 [Live Demo](https://edysegura.github.io/js-FileReader/csv-export) (Chrome 60+, Firefox 60+ and Edge 16+)
 
