@@ -1,5 +1,10 @@
+output {
+  margin-top: 10px;
+  display: block;
+}
+
 img {
-    display: block;
-    width: 200px;
-    margin-top: 10px;
+  display: inline-block;
+  width: 200px;
+  margin-left: 10px;
 }
