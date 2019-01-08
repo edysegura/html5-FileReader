@@ -18,7 +18,7 @@ function showPreview(file) {
 function previewSelectedImages(event) {
   const files = event.target.files
   for (const file of files) {
-    showPreview(file)
+    ;/^image/.test(file.type) && showPreview(file)
   }
 }
 
