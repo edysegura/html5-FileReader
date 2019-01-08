@@ -9,15 +9,17 @@ function createPreview(preview) {
 
 function showPreview(file) {
   const fileReader = new FileReader()
-  fileReader.onloadend = event => {
+  fileReader.addEventListener('loadend', event =>
     createPreview(event.target.result)
-  }
+  )
   fileReader.readAsDataURL(file)
 }
 
-upload.addEventListener('change', event => {
+function previewSelectedImages(event) {
   const files = event.target.files
   for (const file of files) {
     showPreview(file)
   }
-})
+}
+
+upload.addEventListener('change', previewSelectedImages)
