@@ -1,3 +1,5 @@
+'use strict'
+
 const upload = document.getElementById('upload')
 const previews = document.getElementById('previews')
 
