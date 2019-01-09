@@ -1,3 +1,17 @@
+#drop-zone {
+  display: block;
+  width: 200px;
+  height: 200px;
+  border: 1px solid lime;
+  text-align: center;
+  line-height: 200px;
+  text-transform: uppercase;
+}
+
+#drop-zone input {
+  width: 0;
+}
+
 output {
   margin-top: 10px;
   display: block;
