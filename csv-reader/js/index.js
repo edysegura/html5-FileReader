@@ -56,7 +56,8 @@ uploadContainer.addEventListener('dragleave', event => {
 })
 
 uploadContainer.addEventListener('drop', event => {
-  loadCSVFile(event.dataTransfer.files[0])
+  const [ firstDroppedFile ] = event.currentTarget.files
+  loadCSVFile(firstDroppedFile)
   uploadContainer.classList.remove('dragover')
   event.preventDefault()
 })
