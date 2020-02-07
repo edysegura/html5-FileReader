@@ -41,7 +41,8 @@ function loadCSVFile(csvFile) {
 }
 
 input.addEventListener('change', event => {
-  loadCSVFile(event.currentTarget.files[0])
+  const [ firstSelectedFile ] = event.currentTarget.files
+  loadCSVFile(firstSelectedFile)
 })
 
 uploadContainer.addEventListener('dragover', event => {
