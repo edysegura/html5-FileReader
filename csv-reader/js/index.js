@@ -4,11 +4,13 @@ const output = document.querySelector('output')
 
 function showData(data) {
   const header = data.shift()
+
   const lines = data.map(line => `
     <tr>
       <td>${ line.join('</td><td>') }</td>
     </tr>
   `)
+
   const tableHtml = `
     <table>
       <tr>
@@ -17,6 +19,7 @@ function showData(data) {
       ${ lines.join('') }
     </table>
   `
+
   output.innerHTML = tableHtml
 }
 
