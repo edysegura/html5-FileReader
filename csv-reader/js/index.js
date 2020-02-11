@@ -5,6 +5,8 @@ const output = document.querySelector('output')
 function showData(data) {
   const header = data.shift()
 
+  data.splice(50)
+
   const lines = data.map(line => `
     <tr>
       <td>${ line.join('</td><td>') }</td>
