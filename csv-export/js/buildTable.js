@@ -1,5 +1,3 @@
-'use strict'
-
 export default function buildTable(data) {
   const output = document.querySelector('output')
   const table = document.createElement('table')

@@ -12,3 +12,7 @@ td {
   border: 1px solid #ccc;
   padding: 4px;
 }
+
+a {
+  text-decoration: none;
+}
