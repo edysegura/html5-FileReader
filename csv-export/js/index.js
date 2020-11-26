@@ -9,3 +9,7 @@ linkExportCSV.addEventListener('click', (e) => {
   e.preventDefault()
   exportToCSV(data, 'my-filename.csv')
 })
+
+navigator.serviceWorker
+  .register('sw.js')
+  .then(() => console.log('Service Worker Registred!'))
