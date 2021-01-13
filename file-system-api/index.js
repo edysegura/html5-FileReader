@@ -2,6 +2,6 @@ const button = document.querySelector('button')
 
 button.addEventListener('click', async () => {
   const [ handle ] = await window.showOpenFilePicker()
-  const file = handle.getFile()
+  const file = await handle.getFile()
   console.log(file)
 })
