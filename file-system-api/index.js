@@ -22,7 +22,7 @@ btnGetFile.addEventListener('click', async () => {
 })
 
 btnSaveFile.addEventListener('click', async () => {
-  const textFile = new File(['Hello File System API'], 'hello.txt', {
+  const textFile = new File([ output.innerHTML ], 'hello.txt', {
     type: 'text/plain',
   })
   const handle = await window.showSaveFilePicker()
