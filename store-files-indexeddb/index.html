@@ -60,11 +60,11 @@
         console.log("change event fired for input field");
         let file = e.target.files[0];
         var reader = new FileReader();
-        //				reader.readAsDataURL(file);
+        // reader.readAsDataURL(file);
         reader.readAsBinaryString(file);
 
         reader.onload = function (e) {
-          //alert(e.target.result);
+          // alert(e.target.result);
           let bits = e.target.result;
           let ob = {
             created: new Date(),
