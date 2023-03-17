@@ -31,11 +31,13 @@ function showData(data) {
 
 async function processCSV(file) {
   Papa.parse(file, {
-    header: true,
+    // header: true,
     worker: true,
-    complete: function (results) {
-      console.log('Finished:', results)
-      output.textContent = JSON.stringify(results.data, null, 2)
+    step: (results) => {
+      console.log('Row:', results.data)
+    },
+    complete: () => {
+      console.log('Finished!')
     },
   })
 }
