@@ -33,11 +33,13 @@ async function processCSV(file) {
   Papa.parse(file, {
     // header: true,
     worker: true,
-    step: (results) => {
-      console.log('Row:', results.data)
-    },
-    complete: () => {
+    // step: (results) => {
+    //   // console.log('Row:', results.data)
+    //   showData(results.data)
+    // },
+    complete: (results) => {
       console.log('Finished!')
+      showData(results.data)
     },
   })
 }
