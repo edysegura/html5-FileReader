@@ -15,7 +15,7 @@ btnGetFile.addEventListener('click', async () => {
   output.innerHTML = `
     <ul>
       <li>File name: ${file.name}</li>
-      <li>File type: ${file.type || 'Unknow'}</li>
+      <li>File type: ${file.type || 'Unknown'}</li>
       <li>File size: ${convertToKB(file.size).toFixed(2)} KB</li>
     </ul>
   `
