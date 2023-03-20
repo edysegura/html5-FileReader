@@ -7,7 +7,7 @@ function convertToKB(size) {
 }
 
 btnGetFile.addEventListener('click', async () => {
-  const [ handle ] = await window.showOpenFilePicker()
+  const [handle] = await window.showOpenFilePicker()
   const file = await handle.getFile()
 
   console.log(file)
@@ -15,14 +15,14 @@ btnGetFile.addEventListener('click', async () => {
   output.innerHTML = `
     <ul>
       <li>File name: ${file.name}</li>
-      <li>File type: ${file.type || "Unknow"}</li>
+      <li>File type: ${file.type || 'Unknow'}</li>
       <li>File size: ${convertToKB(file.size).toFixed(2)} KB</li>
     </ul>
   `
 })
 
 btnSaveFile.addEventListener('click', async () => {
-  const textFile = new File([ output.textContent ], 'document.txt', {
+  const textFile = new File([output.textContent], 'document.txt', {
     type: 'text/plain',
   })
   const handle = await window.showSaveFilePicker()
