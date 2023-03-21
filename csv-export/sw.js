@@ -8,18 +8,19 @@ self.addEventListener('activate', () => {
   self.clients.claim()
 })
 
-function loadContent() {
-  const filename = 'my-file.txt'
+function loadContent(fileName) {
   const downloadResponse = new Response(arrayToCSV(data))
   downloadResponse.headers.append(
     'Content-Disposition',
-    `attachment; filename="${filename}"`
+    `attachment; filename="${fileName}"`,
   )
   return downloadResponse
 }
 
 self.addEventListener('fetch', (event) => {
-  if (event.request.url.includes('download-file')) {
-    event.respondWith(loadContent())
+  if (event.request.url.includes('download-file/')) {
+    const regexp = /\/([^\/]+)$/
+    const [, fileName] = regexp.exec(event.request.url)
+    event.respondWith(loadContent(fileName))
   }
 })
