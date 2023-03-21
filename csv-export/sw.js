@@ -1,10 +1,10 @@
 importScripts('./js/data-sw.js')
 
-self.addEventListener('install', (event) => {
+self.addEventListener('install', () => {
   self.skipWaiting()
 })
 
-self.addEventListener('activate', (event) => {
+self.addEventListener('activate', () => {
   self.clients.claim()
 })
 
