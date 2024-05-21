@@ -10,7 +10,7 @@ FilePond.registerPlugin(
 )
 
 const pondConfig = {
-  allowMultiple: false,
+  allowMultiple: true,
   allowFileTypeValidation: true,
   acceptedFileTypes: ['image/*'],
   imageResizeTargetWidth: 300,
@@ -33,6 +33,8 @@ const pond = FilePond.create(
   pondConfig,
 )
 
+// if the imageTransformVariants option is set, the prepare file event
+// will receive an array of transformed blobs
 pond.on('preparefile', (metadata, output) => {
   const [ transformedOutput ] = output
   console.log('File size before compression:', metadata.file.size)
