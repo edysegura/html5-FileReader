@@ -38,8 +38,13 @@ pond.on('preparefile', (metadata, output) => {
   console.log('File size before compression:', metadata.file.size)
   console.log('File size after compression:', transformedOutput.file.size)
   output.forEach((blob) => {
-    const img = new Image()
-    img.src = URL.createObjectURL(blob.file)
-    document.body.appendChild(img)
+    const figure = document.createElement('figure')
+    const image = document.createElement('img')
+    const figcaption = document.createElement('figcaption')
+    image.src = URL.createObjectURL(blob.file)
+    figcaption.textContent = `Size: ${blob.file.size} bytes`
+    figure.appendChild(image)
+    figure.appendChild(figcaption)
+    document.body.appendChild(figure)
   })
 })
