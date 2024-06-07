@@ -12,4 +12,4 @@ linkExportCSV.addEventListener('click', (e) => {
 
 navigator.serviceWorker
   .register('sw.js')
-  .then(() => console.log('Service Worker Registred!'))
+  .then(() => console.log('Service Worker Registered!'))
