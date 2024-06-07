@@ -6,16 +6,16 @@ export default function exportToCSV(data, filename) {
     // IE10+
     navigator.msSaveBlob(csvBlob, filename)
   } else {
-    const linkToDownload = document.createElement('a')
+    const link = document.createElement('a')
     const csvURL = URL.createObjectURL(csvBlob)
 
-    linkToDownload.href = csvURL
-    linkToDownload.download = filename
-    linkToDownload.style.display = 'none'
+    link.href = csvURL
+    link.download = filename
+    link.style.display = 'none'
 
-    document.body.appendChild(linkToDownload)
-    linkToDownload.click()
-    document.body.removeChild(linkToDownload)
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
     URL.revokeObjectURL(csvURL)
   }
 }

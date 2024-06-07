@@ -1,4 +1,4 @@
-export default function buildTable(data) {
+export default function generateHtmlTable(data) {
   const output = document.querySelector('output')
   const table = document.createElement('table')
 
