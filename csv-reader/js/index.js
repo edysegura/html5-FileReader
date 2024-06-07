@@ -7,18 +7,20 @@ function showData(data) {
 
   data.splice(50)
 
-  const lines = data.map(line => `
+  const lines = data.map(
+    (line) => `
     <tr>
-      <td>${ line.join('</td><td>') }</td>
+      <td>${line.join('</td><td>')}</td>
     </tr>
-  `)
+  `,
+  )
 
   const tableHtml = `
     <table>
       <tr>
-        <th>${ header.join('</th><th>') }</th>
+        <th>${header.join('</th><th>')}</th>
       </tr>
-      ${ lines.join('') }
+      ${lines.join('')}
     </table>
   `
 
@@ -27,12 +29,11 @@ function showData(data) {
 
 function processCSV(csvData) {
   const lineDelimiter = '\n'
-  const colunmDelimiter = ','
+  const columnDelimiter = ','
 
-  const output =
-    csvData
-      .split(lineDelimiter)
-      .map(line => line.split(colunmDelimiter))
+  const output = csvData
+    .split(lineDelimiter)
+    .map((line) => line.split(columnDelimiter))
 
   return output
 }
@@ -40,28 +41,28 @@ function processCSV(csvData) {
 function loadCSVFile(csvFile) {
   const reader = new FileReader()
   reader.onloadstart = () => (output.textContent = 'Loading...')
-  reader.onloadend = event => showData(processCSV(event.target.result))
+  reader.onloadend = (event) => showData(processCSV(event.target.result))
   reader.onerror = () => (output.textContent = 'This file could not be read')
   reader.readAsText(csvFile)
 }
 
-input.addEventListener('change', event => {
-  const [ firstSelectedFile ] = event.currentTarget.files
+input.addEventListener('change', (event) => {
+  const [firstSelectedFile] = event.currentTarget.files
   loadCSVFile(firstSelectedFile)
 })
 
-uploadContainer.addEventListener('dragover', event => {
+uploadContainer.addEventListener('dragover', (event) => {
   uploadContainer.classList.add('dragover')
   event.preventDefault()
 })
 
-uploadContainer.addEventListener('dragleave', event => {
+uploadContainer.addEventListener('dragleave', (event) => {
   uploadContainer.classList.remove('dragover')
   event.preventDefault()
 })
 
-uploadContainer.addEventListener('drop', event => {
-  const [ firstDroppedFile ] = event.currentTarget.files
+uploadContainer.addEventListener('drop', (event) => {
+  const [firstDroppedFile] = event.currentTarget.files
   loadCSVFile(firstDroppedFile)
   uploadContainer.classList.remove('dragover')
   event.preventDefault()
