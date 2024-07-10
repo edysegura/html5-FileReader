@@ -3,10 +3,12 @@
 Simple examples using HTML5 FileReader API
 
 ## Example
-
-- [Image Preview](https://edysegura.github.io/js-FileReader/image-preview)
-- [CSV Reader](https://edysegura.github.io/js-FileReader/csv-reader)
-- [CSV Export](https://edysegura.github.io/js-FileReader/csv-export)
+- [Image Preview](https://edysegura.github.io/html5-FileReader/image-preview)
+- [CSV Reader](https://edysegura.github.io/html5-FileReader/csv-reader)
+- [CSV Export](https://edysegura.github.io/html5-FileReader/csv-export)
+- [CSV Reader with Papaparse](http://edysegura.com/html5-FileReader/csv-reader-papaparse)
+- [Image Compress](https://edysegura.com/html5-FileReader/image-compress)
+- [Save files to indexedDB](http://edysegura.com/html5-FileReader/store-files-indexddb)
 
 ## References
 
