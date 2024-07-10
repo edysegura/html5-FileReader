@@ -8,7 +8,7 @@ Simple examples using HTML5 FileReader API
 - [CSV Export](https://edysegura.github.io/html5-FileReader/csv-export)
 - [CSV Reader with Papaparse](http://edysegura.com/html5-FileReader/csv-reader-papaparse)
 - [Image Compress](https://edysegura.com/html5-FileReader/image-compress)
-- [Save files to indexedDB](http://edysegura.com/html5-FileReader/store-files-indexddb)
+- [Save files to indexedDB](http://edysegura.com/html5-FileReader/store-files-indexeddb)
 
 ## References
 
