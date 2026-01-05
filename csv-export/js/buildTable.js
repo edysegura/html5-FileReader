@@ -2,6 +2,8 @@ export default function generateHtmlTable(data) {
   const output = document.querySelector('#tableContainer')
   const table = document.createElement('table')
 
+  table.classList.add('striped', 'hovered')
+
   const createRow = (rowData) => {
     const row = table.insertRow()
     const createColumn = (colData) => {
