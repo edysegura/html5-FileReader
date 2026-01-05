@@ -95,6 +95,11 @@ td {
   padding: 1rem;
 }
 
+tbody tr:first-child {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 tbody tr:last-child {
   border-bottom: none;
 }
