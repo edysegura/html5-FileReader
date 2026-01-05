@@ -1,18 +1,170 @@
-table {
-  border-collapse: collapse;
-  margin-top: 10px;
+/* Pico CSS v2 Custom Styling */
+
+/* Layout & Spacing */
+body {
+  padding-bottom: 4rem;
 }
 
-tr:nth-child(1) td {
+header {
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+header hgroup {
+  margin: 0;
+}
+
+header h1 {
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  margin: 0;
+  color: var(--muted-color);
+}
+
+section {
+  margin: 2rem 0;
+}
+
+section h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--form-element-valid-border-color);
+}
+
+/* Cards/Articles */
+article {
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+article:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-color: var(--form-element-valid-border-color);
+}
+
+article h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+}
+
+article p {
+  color: var(--muted-color);
+  margin-bottom: 1rem;
+}
+
+/* Grid Layout */
+.grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  margin-top: 1.5rem;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: var(--form-element-valid-border-color);
+  color: white;
+}
+
+thead tr th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
   text-transform: capitalize;
-  font-weight: bold;
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--border-color);
+}
+
+tbody tr:hover {
+  background-color: var(--form-element-background-color);
 }
 
 td {
-  border: 1px solid #ccc;
-  padding: 4px;
+  padding: 1rem;
 }
 
-a {
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Table Container */
+#tableContainer {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+#tableContainer table {
+  margin-top: 0;
+}
+
+/* Buttons & Links */
+a[role='button'] {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Export Options Section */
+#export-options {
+  margin: 2rem 0;
+}
+
+#data-preview {
+  margin-top: 3rem;
+}
+
+/* Footer */
+footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  color: var(--muted-color);
+}
+
+footer a {
+  color: var(--form-element-valid-border-color);
   text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  main.container {
+    padding: 1rem;
+  }
+
+  header {
+    padding: 1.5rem 0;
+  }
+
+  section h2 {
+    font-size: 1.25rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  article {
+    padding: 1rem;
+  }
 }

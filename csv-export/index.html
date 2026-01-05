@@ -5,17 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Export to CSV</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
     <script type="module" src="js/app.js"></script>
   </head>
   <body>
-    <output>
-      <div><a href="#" title="Download CSV file">📚 Export to CSV</a></div>
-      <div>
-        <a href="download-file/my-data-file.csv" title="Download CSV file"
-          >📚 Export to CSV using Service Worker</a
-        >
-      </div>
-    </output>
+    <main class="container">
+      <header>
+        <hgroup>
+          <h1>CSV Export Tool</h1>
+          <p>Export and download your data in CSV format</p>
+        </hgroup>
+      </header>
+
+      <section id="export-options">
+        <h2>Export Options</h2>
+        <div class="grid">
+          <article>
+            <h3>📥 Direct Download</h3>
+            <p>Export your CSV file directly to your computer</p>
+            <a href="#" id="exportLink" role="button">Download CSV File</a>
+          </article>
+          <article>
+            <h3>🌐 Service Worker</h3>
+            <p>Export using Service Worker for offline capabilities</p>
+            <a href="download-file/my-data-file.csv" role="button"
+              >Download via Service Worker</a
+            >
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <small>Built with <a href="https://picocss.com">Pico CSS</a></small>
+    </footer>
   </body>
 </html>

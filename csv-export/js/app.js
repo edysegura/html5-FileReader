@@ -7,6 +7,7 @@ generateHtmlTable(data)
 const linkExportCSV = document.querySelector('a')
 linkExportCSV.addEventListener('click', (e) => {
   e.preventDefault()
+  console.log(`👁️ [app.js] export to csv clicked`)
   exportToCSV(data, 'my-filename.csv')
 })
 
