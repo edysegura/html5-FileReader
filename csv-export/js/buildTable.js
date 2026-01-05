@@ -1,5 +1,5 @@
 export default function generateHtmlTable(data) {
-  const output = document.querySelector('output')
+  const output = document.querySelector('#tableContainer')
   const table = document.createElement('table')
 
   const createRow = (rowData) => {
