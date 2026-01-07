@@ -1,45 +1,62 @@
-label {
-  display: block;
-  background-color: rgb(176, 204, 165);
-  border: 1px solid rgb(133, 184, 123);
+#upload-container {
+  padding: 2rem;
+  border: 2px dashed var(--form-element-border-color);
+  border-radius: var(--border-radius);
   text-align: center;
+  background-color: var(--form-element-background-color);
+  transition: background-color 0.2s ease;
+  cursor: pointer;
 }
 
-label input {
-  visibility: hidden;
-  width: 0;
+#upload-container:hover {
+  background-color: var(--form-element-focus-background-color);
 }
 
-label span {
-  text-decoration: underline;
+#upload-container.dragover {
+  background-color: var(--form-element-valid-border-color);
+  border-color: var(--form-element-valid-border-color);
 }
 
-label span:hover {
-  color: blue;
+#upload-container input {
+  display: none;
 }
 
-.dragover {
-  background-color: aquamarine;
+#upload-hint {
+  margin: 0;
+  color: var(--muted-color);
 }
 
 output {
   display: block;
-  margin-top: 20px;
+  margin-top: 1rem;
 }
 
 table {
+  width: 100%;
   border-collapse: collapse;
+  margin-top: 1rem;
 }
 
-tr:nth-child(even) {
-  background-color: #eee;
+tbody tr:nth-child(even) {
+  background-color: var(--table-border-color);
 }
 
-table, th, td {
-  border: 2px solid #eee;
+thead {
+  border-bottom: 2px solid var(--table-border-color);
+}
+
+th,
+td {
+  padding: 0.75rem;
+  text-align: left;
 }
 
 th {
   text-transform: capitalize;
-  padding: 4px;
+  font-weight: 600;
+  background-color: var(--form-element-background-color);
+}
+
+td {
+  border-bottom: 1px solid var(--table-border-color);
 }

@@ -5,15 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>CSV Reader with HTML5 FileReader API</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <label for="upload" id="upload-container">
-      <input type="file" id="upload" accept=".csv" />
-      <p>Drag your CSV file here or <span>click here</span> to choose one</p>
-    </label>
+    <main class="container">
+      <article>
+        <h1>CSV Reader</h1>
+        <p>Upload and view your CSV files with the HTML5 FileReader API</p>
 
-    <output></output>
+        <div id="upload-container">
+          <label for="upload">
+            <input type="file" id="upload" accept=".csv" />
+          </label>
+          <p id="upload-hint">
+            <small>Drag your CSV file here or click to choose one</small>
+          </p>
+        </div>
+
+        <div id="output" style="display: none; margin-top: 2rem">
+          <h2>Data Preview</h2>
+          <output></output>
+        </div>
+      </article>
+    </main>
 
     <script src="js/index.js"></script>
   </body>
