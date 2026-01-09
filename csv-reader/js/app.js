@@ -1,5 +1,6 @@
 const uploadContainer = document.getElementById('upload-container')
 const input = document.getElementById('upload')
+const outputContainer = document.getElementById('output')
 const output = document.querySelector('output')
 
 function showData(data) {
@@ -25,7 +26,7 @@ function showData(data) {
   `
 
   output.innerHTML = tableHtml
-  document.getElementById('output').style.display = 'block'
+  outputContainer.style.display = 'block'
 }
 
 function processCSV(csvData) {
