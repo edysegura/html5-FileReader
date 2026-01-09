@@ -1,45 +1,81 @@
-label {
+/* Upload Container */
+#upload-container {
   display: block;
-  background-color: rgb(176, 204, 165);
-  border: 1px solid rgb(133, 184, 123);
+  padding: 3rem;
   text-align: center;
+  border: 2px dashed var(--form-element-border-color);
+  border-radius: var(--border-radius);
+  background-color: var(--form-element-background-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-label input {
-  visibility: hidden;
-  width: 0;
+#upload-container:hover {
+  border-color: var(--form-element-focus-border-color);
+  background-color: var(--code-background-color);
 }
 
-label span {
-  text-decoration: underline;
+#upload-container.dragover {
+  border-color: var(--form-element-focus-border-color);
+  background-color: var(--card-background-color);
+  box-shadow: 0 0 0 3px var(--form-element-focus-border-color);
 }
 
-label span:hover {
-  color: blue;
+#upload-container input {
+  display: none;
 }
 
-.dragover {
-  background-color: aquamarine;
+#upload-container p {
+  margin: 0;
 }
 
+#upload-container strong {
+  cursor: pointer;
+}
+
+/* Table Styling */
 output {
   display: block;
-  margin-top: 20px;
+  width: 100%;
+  overflow-x: auto;
 }
 
 table {
+  width: 100%;
   border-collapse: collapse;
+  margin-bottom: 1rem;
 }
 
-tr:nth-child(even) {
-  background-color: #eee;
-}
-
-table, th, td {
-  border: 2px solid #eee;
-}
-
-th {
+table th {
   text-transform: capitalize;
-  padding: 4px;
+  font-weight: 600;
+  background-color: var(--code-background-color);
+}
+
+table th,
+table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--muted-border-color);
+}
+
+table tbody tr:hover {
+  background-color: var(--code-background-color);
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  #upload-container {
+    padding: 2rem 1rem;
+  }
+
+  table th,
+  table td {
+    padding: 0.5rem 0.25rem;
+    font-size: 0.875rem;
+  }
+
+  main.container {
+    padding: 1rem;
+  }
 }

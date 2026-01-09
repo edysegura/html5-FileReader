@@ -2,7 +2,8 @@ import Papa from 'https://cdn.jsdelivr.net/npm/papaparse@5.4.0/+esm'
 
 const uploadContainer = document.getElementById('upload-container')
 const input = document.getElementById('upload')
-const output = document.querySelector('output')
+const output = document.getElementById('table-output')
+const resultsSection = document.getElementById('results-section')
 
 function showData(data) {
   const header = data.shift()
@@ -27,6 +28,7 @@ function showData(data) {
   `
 
   output.innerHTML = tableHtml
+  resultsSection.style.display = 'block'
 }
 
 async function processCSV(file) {
