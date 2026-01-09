@@ -25,6 +25,7 @@ function showData(data) {
   `
 
   output.innerHTML = tableHtml
+  document.getElementById('output').style.display = 'block'
 }
 
 function processCSV(csvData) {
@@ -62,7 +63,7 @@ uploadContainer.addEventListener('dragleave', (event) => {
 })
 
 uploadContainer.addEventListener('drop', (event) => {
-  const [firstDroppedFile] = event.currentTarget.files
+  const [firstDroppedFile] = event.dataTransfer.files
   loadCSVFile(firstDroppedFile)
   uploadContainer.classList.remove('dragover')
   event.preventDefault()
