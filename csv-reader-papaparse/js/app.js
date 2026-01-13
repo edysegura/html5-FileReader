@@ -19,7 +19,7 @@ function showData(data) {
   )
 
   const tableHtml = `
-    <table>
+    <table class="striped">
       <tr>
         <th>${header.join('</th><th>')}</th>
       </tr>
