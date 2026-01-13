@@ -20,10 +20,14 @@ function showData(data) {
 
   const tableHtml = `
     <table class="striped">
-      <tr>
-        <th>${header.join('</th><th>')}</th>
-      </tr>
-      ${lines.join('')}
+      <thead>
+        <tr>
+          <th>${header.join('</th><th>')}</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${lines.join('')}
+      </tbody>
     </table>
   `
 
