@@ -47,7 +47,7 @@ table {
 }
 
 table th {
-  text-transform: capitalize;
+  text-transform: uppercase;
   font-weight: 600;
   background-color: var(--code-background-color);
 }
