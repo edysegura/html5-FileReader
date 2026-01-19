@@ -1,15 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML5 File System API</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@2.0.0/css/pico.min.css"
+    />
+    <style>
+      .controls {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      output.card {
+        display: block;
+        padding: 1rem;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+    </style>
     <script src="app.js" defer></script>
   </head>
   <body>
-    <button id="btnGetFile">Get File</button>
-    <button id="btnSaveFile">Save File</button>
-    <p>PS: At the moment it works only on Chromium Based Browsers!</p>
-    <output></output>
+    <main class="container">
+      <header>
+        <h1>HTML5 File System API</h1>
+        <p class="subtitle">
+          A small demo showing file open/save using the File System Access API.
+        </p>
+      </header>
+
+      <section>
+        <div class="controls">
+          <button id="btnGetFile" class="primary">Get File</button>
+          <button id="btnSaveFile" class="contrast">Save File</button>
+        </div>
+        <p>PS: At the moment it works only on Chromium-based browsers!</p>
+      </section>
+
+      <section>
+        <h2>File Info</h2>
+        <output id="output" class="card" aria-live="polite"
+          >No file selected.</output
+        >
+      </section>
+    </main>
   </body>
 </html>
