@@ -6,7 +6,7 @@ function convertToKB(size) {
   return size / 1024
 }
 
-btnGetFile.addEventListener('click', async () => {
+async function handleGetFile() {
   try {
     const [handle] = await window.showOpenFilePicker()
     const file = await handle.getFile()
@@ -20,13 +20,13 @@ btnGetFile.addEventListener('click', async () => {
         <li>File size: ${convertToKB(file.size).toFixed(2)} KB</li>
       </ul>
     `
-  } catch (err) {
+  } catch (error) {
     output.textContent = 'No file selected.'
-    console.warn(err)
+    console.warn(error)
   }
-})
+}
 
-btnSaveFile.addEventListener('click', async () => {
+async function handleSaveFile() {
   try {
     const textFile = new File([output.textContent], 'document.txt', {
       type: 'text/plain',
@@ -35,7 +35,10 @@ btnSaveFile.addEventListener('click', async () => {
     const writable = await handle.createWritable()
     await writable.write(textFile)
     await writable.close()
-  } catch (err) {
-    console.warn(err)
+  } catch (error) {
+    console.warn(error)
   }
-})
+}
+
+btnGetFile.addEventListener('click', handleGetFile)
+btnSaveFile.addEventListener('click', handleSaveFile)
