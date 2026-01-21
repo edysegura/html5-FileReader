@@ -11,7 +11,7 @@ async function handleGetFile() {
     const [handle] = await window.showOpenFilePicker()
     const file = await handle.getFile()
 
-    console.log(file)
+    console.log(`👁️ [app.js] `, file)
 
     const extension = file.name.split('.').pop()
     output.innerHTML = `
@@ -37,7 +37,7 @@ async function handleSaveFile() {
     await writable.write(textFile)
     await writable.close()
   } catch (error) {
-    console.warn(error)
+    console.error(`👁️ [app.js] ${error}`)
   }
 }
 
