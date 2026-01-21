@@ -13,10 +13,11 @@ async function handleGetFile() {
 
     console.log(file)
 
+    const extension = file.name.split('.').pop()
     output.innerHTML = `
       <ul>
         <li>File name: ${file.name}</li>
-        <li>File type: ${file.type || 'Unknown'}</li>
+        <li>File type: ${file.type || `Unknown (.${extension})`}</li>
         <li>File size: ${convertToKB(file.size).toFixed(2)} KB</li>
       </ul>
     `
