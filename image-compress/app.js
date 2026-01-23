@@ -28,15 +28,15 @@ const pondConfig = {
   },
 }
 
-const pond = FilePond.create(
+const filePond = FilePond.create(
   document.querySelector('input[type="file"]'),
   pondConfig,
 )
 
 // if the imageTransformVariants option is set, the prepare file event
 // will receive an array of transformed blobs
-pond.on('preparefile', (metadata, output) => {
-  const [ transformedOutput ] = output
+filePond.on('preparefile', (metadata, output) => {
+  const [transformedOutput] = output
   console.log('File size before compression:', metadata.file.size)
   console.log('File size after compression:', transformedOutput.file.size)
   output.forEach((blob) => {
