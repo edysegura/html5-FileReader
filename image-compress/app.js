@@ -82,7 +82,7 @@ filePond.on('preparefile', (metadata, output) => {
 })
 
 // Clean up when file is removed
-filePond.on('processfile', (error, file) => {
+filePond.on('processfile', (error) => {
   if (error) {
     console.error('Error processing file:', error)
   }
