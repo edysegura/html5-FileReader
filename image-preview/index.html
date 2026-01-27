@@ -1,18 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Preview Upload</title>
+    <title>Image Preview Upload</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <label id="drop-zone" for="upload">
-      Browser your files
-      <input type="file" id="upload" accept="image/*" multiple />
-    </label>
-    <output id="previews"></output>
+    <main class="container">
+      <header>
+        <h1>Image Preview Upload</h1>
+        <p>Select images to preview them before upload</p>
+      </header>
+
+      <section>
+        <form>
+          <label for="upload">
+            <strong>Select Images</strong>
+            <input
+              type="file"
+              id="upload"
+              accept="image/*"
+              multiple
+              aria-label="Upload images"
+            />
+          </label>
+          <small
+            >You can select multiple images at once. Only image files will be
+            previewed.</small
+          >
+        </form>
+      </section>
+
+      <section id="gallery" style="display: none">
+        <h2>Image Preview</h2>
+        <div id="previews" class="image-grid"></div>
+      </section>
+    </main>
+
     <script src="js/index.js"></script>
   </body>
 </html>
