@@ -26,7 +26,7 @@ function showData(data) {
   `
 
   output.innerHTML = tableHtml
-  outputContainer.style.display = 'block'
+  outputContainer.classList.add('visible')
 }
 
 function processCSV(csvData) {
