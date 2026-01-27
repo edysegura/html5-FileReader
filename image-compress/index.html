@@ -3,17 +3,50 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Image Compress Example</title>
+    <title>Image Compress & Preview</title>
+    <!-- Pico CSS v2 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <!-- FilePond CSS -->
     <link
       href="https://unpkg.com/filepond@^4/dist/filepond.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="style.css" />
     <script type="module" src="app.js"></script>
   </head>
   <body>
-    <label>
-      <span>Upload Image:</span>
-      <input type="file" accept="image/*" />
-    </label>
+    <main class="container">
+      <section>
+        <hgroup>
+          <h1>📸 Image Compressor</h1>
+          <p>Upload images to compress and preview them</p>
+        </hgroup>
+      </section>
+
+      <section>
+        <form>
+          <div>
+            <label for="file-input">
+              <strong>Select Images</strong>
+              <p>
+                <small>Supports multiple images (JPEG, PNG, WebP, etc.)</small>
+              </p>
+            </label>
+            <input id="file-input" type="file" accept="image/*" multiple />
+          </div>
+        </form>
+      </section>
+
+      <section id="gallery" class="gallery-container">
+        <h2>Compressed Images</h2>
+        <div id="preview-grid" class="preview-grid"></div>
+        <p id="empty-state" class="empty-state">
+          <small>Upload images to see them here</small>
+        </p>
+      </section>
+    </main>
   </body>
 </html>
