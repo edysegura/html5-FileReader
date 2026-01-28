@@ -1,0 +1,281 @@
+/* Custom styles for File Store Manager */
+
+:root {
+  --transition-duration: 0.2s;
+}
+
+/* Layout and spacing */
+body {
+  background: linear-gradient(
+    135deg,
+    var(--form-element-background-color) 0%,
+    var(--card-background-color) 100%
+  );
+  min-height: 100vh;
+}
+
+main.container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--muted-color);
+}
+
+header h1 {
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: var(--muted-color);
+  font-size: 1.125rem;
+}
+
+/* Article and section styles */
+article {
+  background: var(--card-background-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+section {
+  padding: 2rem;
+  border-bottom: 1px solid var(--muted-color);
+}
+
+section:last-of-type {
+  border-bottom: none;
+}
+
+section h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--form-element-valid-border-color);
+}
+
+/* Form styles */
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+input[type='file'],
+input[type='number'] {
+  margin-top: 0.25rem;
+}
+
+small {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--muted-color);
+  font-size: 0.875rem;
+}
+
+/* Grid layout for responsive design */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 576px) {
+  .grid {
+    grid-template-columns: 1fr auto;
+  }
+}
+
+/* Button styles */
+button {
+  transition: all var(--transition-duration) ease;
+}
+
+button:hover,
+button:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+button.outline {
+  margin: 0;
+}
+
+/* File preview styles */
+#filePreview {
+  background: var(--form-element-background-color);
+  padding: 2rem;
+  border-radius: 8px;
+  transition: all var(--transition-duration) ease;
+}
+
+#previewImage {
+  transition: transform var(--transition-duration) ease;
+}
+
+#previewImage:hover {
+  transform: scale(1.02);
+}
+
+#previewInfo {
+  margin: 1rem 0 0 0;
+}
+
+/* Table styles */
+table {
+  margin-bottom: 0;
+}
+
+table thead th {
+  background: var(--form-element-background-color);
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+}
+
+table tbody tr {
+  border-bottom: 1px solid var(--muted-color);
+  transition: background-color var(--transition-duration) ease;
+}
+
+table tbody tr:hover {
+  background: var(--form-element-background-color);
+}
+
+table td {
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+table button {
+  margin: 0;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--muted-color);
+  border-top: 1px solid var(--muted-color);
+}
+
+footer a {
+  color: var(--form-element-valid-border-color);
+  text-decoration: none;
+  transition: color var(--transition-duration) ease;
+}
+
+footer a:hover,
+footer a:focus {
+  text-decoration: underline;
+  color: var(--link-color);
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 575px) {
+  main.container {
+    margin: 1rem auto;
+    padding: 0 0.5rem;
+  }
+
+  section {
+    padding: 1.5rem 1rem;
+  }
+
+  header {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  table {
+    font-size: 0.875rem;
+  }
+
+  table thead {
+    display: none;
+  }
+
+  table tbody,
+  table tr,
+  table td {
+    display: block;
+    width: 100%;
+  }
+
+  table tr {
+    margin-bottom: 1rem;
+    border: 1px solid var(--muted-color);
+    padding: 0;
+  }
+
+  table td {
+    text-align: right;
+    padding: 0.5rem;
+    position: relative;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0.5rem;
+    font-weight: 600;
+    width: 40%;
+  }
+}
+
+/* Accessibility improvements */
+:focus-visible {
+  outline: 2px solid var(--form-element-valid-border-color);
+  outline-offset: 2px;
+}
+
+/* Loading and state indicators */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 {
+  margin-top: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 1rem;
+}
+
+.mt-3 {
+  margin-top: 1.5rem;
+}

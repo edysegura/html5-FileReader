@@ -1,108 +1,138 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Store and retrieve files using IndexedDB with Dexie.js"
+    />
+    <title>File Store - IndexedDB Manager</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <input type="file" id="pictureTest" capture />
+    <main class="container">
+      <header>
+        <h1>File Store Manager</h1>
+        <p>Store and retrieve files using IndexedDB</p>
+      </header>
 
-    <h2>Test Image Below</h2>
-    <input type="number" id="recordToLoad" />
-    <button id="testImageBtn">Test</button>
+      <article>
+        <section>
+          <h2>Upload File</h2>
+          <form id="uploadForm">
+            <fieldset>
+              <label for="fileInput">
+                Select Image File
+                <input
+                  type="file"
+                  id="fileInput"
+                  accept="image/*"
+                  aria-label="Select an image file to store"
+                />
+              </label>
+              <small>Supported formats: JPEG, PNG, WebP, GIF</small>
+            </fieldset>
+          </form>
+        </section>
 
-    <img id="testImage" />
+        <section>
+          <h2>Retrieve File</h2>
+          <form id="retrieveForm">
+            <fieldset>
+              <div class="grid">
+                <label for="recordId">
+                  Record ID
+                  <input
+                    type="number"
+                    id="recordId"
+                    min="1"
+                    placeholder="Enter file ID"
+                    aria-label="Enter the ID of the file to retrieve"
+                  />
+                </label>
+                <div style="display: flex; align-items: flex-end">
+                  <button type="button" id="loadBtn" class="outline">
+                    Load File
+                  </button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
 
-    <script>
-      let db;
-      let dbVersion = 1;
-      let dbReady = false;
+          <div id="filePreview" style="margin-top: 1rem; text-align: center">
+            <img
+              id="previewImage"
+              alt="Preview of retrieved file"
+              style="
+                max-width: 100%;
+                max-height: 400px;
+                display: none;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+              "
+            />
+            <p
+              id="previewInfo"
+              style="
+                display: none;
+                margin-top: 0.5rem;
+                font-size: 0.875rem;
+                color: var(--muted-color);
+              "
+            >
+              <span id="uploadTime"></span>
+            </p>
+          </div>
+        </section>
 
-      document.addEventListener("DOMContentLoaded", () => {
-        console.log("dom content loaded");
+        <section>
+          <h2>Stored Files</h2>
+          <div
+            id="filesList"
+            aria-live="polite"
+            aria-label="List of stored files"
+          >
+            <p id="noFiles" style="color: var(--muted-color)">
+              No files stored yet
+            </p>
+            <table id="filesTable" style="display: none; width: 100%">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Upload Date</th>
+                  <th scope="col">Size (Bytes)</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody id="filesTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </article>
 
-        document
-          .querySelector("#pictureTest")
-          .addEventListener("change", doFile);
+      <footer>
+        <small>
+          Built with
+          <a href="https://dexie.org/" target="_blank" rel="noopener"
+            >Dexie.js</a
+          >
+          and
+          <a href="https://picocss.com/" target="_blank" rel="noopener"
+            >PicoCSS</a
+          >
+        </small>
+      </footer>
+    </main>
 
-        document
-          .querySelector("#testImageBtn")
-          .addEventListener("click", doImageTest);
-
-        initDb();
-      });
-
-      function initDb() {
-        let request = indexedDB.open("testPics", dbVersion);
-
-        request.onerror = function (e) {
-          console.error("Unable to open database.");
-        };
-
-        request.onsuccess = function (e) {
-          db = e.target.result;
-          console.log("db opened");
-        };
-
-        request.onupgradeneeded = function (e) {
-          let db = e.target.result;
-          db.createObjectStore("cachedForms", {
-            keyPath: "id",
-            autoIncrement: true,
-          });
-          dbReady = true;
-        };
-      }
-
-      function doFile(e) {
-        console.log("change event fired for input field");
-        let file = e.target.files[0];
-        var reader = new FileReader();
-        // reader.readAsDataURL(file);
-        reader.readAsBinaryString(file);
-
-        reader.onload = function (e) {
-          // alert(e.target.result);
-          let bits = e.target.result;
-          let ob = {
-            created: new Date(),
-            data: bits,
-          };
-
-          let trans = db.transaction(["cachedForms"], "readwrite");
-          let addReq = trans.objectStore("cachedForms").add(ob);
-
-          addReq.onerror = function (e) {
-            console.log("error storing data");
-            console.error(e);
-          };
-
-          trans.oncomplete = function (e) {
-            console.log("data stored");
-          };
-        };
-      }
-
-      function doImageTest() {
-        console.log("doImageTest");
-        let image = document.querySelector("#testImage");
-        let recordToLoad = parseInt(
-          document.querySelector("#recordToLoad").value,
-          10
-        );
-        if (recordToLoad === "") recordToLoad = 1;
-
-        let trans = db.transaction(["cachedForms"], "readonly");
-        //hard coded id
-        let req = trans.objectStore("cachedForms").get(recordToLoad);
-        req.onsuccess = function (e) {
-          let record = e.target.result;
-          console.log("get success", record);
-          image.src = "data:image/jpeg;base64," + btoa(record.data);
-        };
-      }
-    </script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/dexie@latest/dist/dexie.min.js"
+    ></script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>
