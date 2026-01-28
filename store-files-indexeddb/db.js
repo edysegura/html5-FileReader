@@ -1,4 +1,4 @@
-import Dexie from 'https://cdn.jsdelivr.net/npm/dexie@latest/dist/dexie.min.js'
+import Dexie from 'https://cdn.jsdelivr.net/npm/dexie@4.2.1/+esm'
 
 // Define and initialize the database
 export const db = new Dexie('fileStore')
