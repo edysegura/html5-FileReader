@@ -111,15 +111,28 @@ button.outline {
   margin: 0;
 }
 
+/* Flex layout for button alignment */
+.flex-end {
+  display: flex;
+  align-items: flex-end;
+}
+
 /* File preview styles */
 #filePreview {
   background: var(--form-element-background-color);
   padding: 2rem;
   border-radius: 8px;
   transition: all var(--transition-duration) ease;
+  margin-top: 1rem;
+  text-align: center;
 }
 
 #previewImage {
+  max-width: 100%;
+  max-height: 400px;
+  display: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: transform var(--transition-duration) ease;
 }
 
@@ -128,12 +141,24 @@ button.outline {
 }
 
 #previewInfo {
-  margin: 1rem 0 0 0;
+  display: none;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--muted-color);
 }
 
 /* Table styles */
 table {
   margin-bottom: 0;
+}
+
+#filesTable {
+  display: none;
+  width: 100%;
+}
+
+#noFiles {
+  color: var(--muted-color);
 }
 
 table thead th {
