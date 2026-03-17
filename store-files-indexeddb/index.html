@@ -44,24 +44,20 @@
         <section>
           <h2>Retrieve File</h2>
           <form id="retrieveForm">
-            <fieldset>
-              <div class="grid">
-                <label for="recordId">
-                  Record ID
-                  <input
-                    type="number"
-                    id="recordId"
-                    min="1"
-                    placeholder="Enter file ID"
-                    aria-label="Enter the ID of the file to retrieve"
-                  />
-                </label>
-                <div class="flex-end">
-                  <button type="button" id="loadBtn" class="outline">
-                    Load File
-                  </button>
-                </div>
-              </div>
+            <fieldset role="group">
+              <input
+                type="text"
+                id="recordId"
+                pattern="\d"
+                placeholder="Enter file ID"
+                aria-label="Enter the ID of the file to retrieve"
+              />
+              <input
+                type="button"
+                id="loadBtn"
+                value="Load File"
+                aria-label="Click to load the file with the specified ID"
+              />
             </fieldset>
           </form>
 
